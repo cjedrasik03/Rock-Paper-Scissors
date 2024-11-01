@@ -1,0 +1,35 @@
+
+function playRound(playerSelection) {
+   
+    function getComputerChoice() {
+        const choices = ['rock', 'paper', 'scissors'];
+        return choices[Math.floor(Math.random() * choices.length)];
+    }
+
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = getComputerChoice().toLowerCase();
+    const roundChoices = playerSelection + '-' + computerSelection
+    
+    switch (roundChoices) {
+        // Tie scenarios/choice matchups
+            case 'rock-rock':
+            case 'paper-paper':
+            case 'scissors-scissors':
+                return "It is a tie!";
+        
+        // Winning scenarios/choice matchups
+            case 'rock-scissors':
+            case 'paper-rock':
+            case 'scissors-paper':
+                return `Well done, ${playerSelection} beats ${computerSelection} you win!`;
+        
+        // Losing scenarios/choice matchups
+            case 'rock-paper':
+            case 'paper-scissors':
+            case 'scissors-rock':
+                return `You lose this time :( - ${computerSelection} beats ${playerSelection}.`;
+        
+            default:
+                return 'Error!';
+    }
+};
